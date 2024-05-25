@@ -1,0 +1,6 @@
+# .gitignore
+**/glados-tts-main/
+
+**/glados_tts_main/
+
+**/ypewriter_frames/
