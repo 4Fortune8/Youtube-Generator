@@ -124,7 +124,7 @@ class tts_runner:
         global lineNumber
         lineNumber += 1
         print(newpath)
-        audio.export(newpath+"//"+str(lineNumber)+text[0:8]+"output.wav", format = "wav")
+        audio.export(newpath+"//"+str(lineNumber)+' '+text[0:8]+"output.wav", format = "wav")
         time_left = old_dur - time.time() + old_time
         if time_left >= 0:
             time.sleep(time_left + delay)

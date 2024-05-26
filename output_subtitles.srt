@@ -1,0 +1,312 @@
+1
+00:00:00,000 --> 00:00:00,697
+Welcome
+
+2
+00:00:00,697 --> 00:00:01,706
+test subjects
+
+3
+00:00:01,706 --> 00:00:04,621
+to another exploration of the anomalous
+
+4
+00:00:04,621 --> 00:00:05,248
+Today
+
+5
+00:00:05,248 --> 00:00:07,164
+we delve into SCP-008
+
+6
+00:00:07,164 --> 00:00:09,637
+also known as the "Zombie Plague"
+
+7
+00:00:09,637 --> 00:00:12,621
+SCP-008 is classified as Euclid
+
+8
+00:00:12,621 --> 00:00:16,719
+This complex prion is a Class V extreme biological hazard
+
+9
+00:00:16,719 --> 00:00:19,552
+stored in highly secure G2 sites
+
+10
+00:00:19,552 --> 00:00:22,002
+The containment protocols are stringent
+
+11
+00:00:22,002 --> 00:00:26,960
+ensuring incineration and irradiation measures are ready in case of any breach
+
+12
+00:00:26,960 --> 00:00:31,558
+The quarantine period for operatives leaving the facility is four months
+
+13
+00:00:31,558 --> 00:00:33,091
+In the event of a breach
+
+14
+00:00:33,091 --> 00:00:37,909
+all measures must be deployed to ensure the prion does not escape containment
+
+15
+00:00:37,909 --> 00:00:42,797
+Evacuation is not an option; complete eradication is the only policy
+
+16
+00:00:42,797 --> 00:00:46,025
+SCP-008 exhibits terrifying traits
+
+17
+00:00:46,025 --> 00:00:47,674
+100% infectiousness
+
+18
+00:00:47,674 --> 00:00:49,183
+100% lethality
+
+19
+00:00:49,183 --> 00:00:53,456
+and transmission through all bodily fluids and mucous membranes
+
+20
+00:00:53,456 --> 00:00:54,095
+However
+
+21
+00:00:54,095 --> 00:00:56,614
+it is not airborne or waterborne
+
+22
+00:00:56,614 --> 00:00:58,994
+Symptoms manifest within three hours
+
+23
+00:00:58,994 --> 00:01:02,198
+starting with flu-like symptoms and severe dementia
+
+24
+00:01:02,198 --> 00:01:05,333
+leading to coma and death within 20 hours
+
+25
+00:01:05,333 --> 00:01:07,260
+Test Log 008-Alpha
+
+26
+00:01:07,260 --> 00:01:11,486
+Initial tests on infected subjects revealed rapid onset of symptoms
+
+27
+00:01:11,486 --> 00:01:13,657
+with subjects exhibiting high fever
+
+28
+00:01:13,657 --> 00:01:14,992
+severe dementia
+
+29
+00:01:14,992 --> 00:01:16,873
+and eventual coma
+
+30
+00:01:16,873 --> 00:01:19,984
+Necrotic tissue displayed remarkable resilience
+
+31
+00:01:19,984 --> 00:01:23,421
+functioning despite extensive cellular damage
+
+32
+00:01:23,421 --> 00:01:25,383
+Test Log 008-Beta
+
+33
+00:01:25,383 --> 00:01:30,120
+Infected tissue samples showed increased oxygen storage in red blood cells
+
+34
+00:01:30,120 --> 00:01:33,951
+leading to slower blood flow and enhanced muscle endurance
+
+35
+00:01:33,951 --> 00:01:36,122
+Even after total organ failure
+
+36
+00:01:36,122 --> 00:01:40,000
+the nervous and muscular systems remained active for hours
+
+37
+00:01:40,000 --> 00:01:42,821
+Infected subjects exhibit erratic behavior
+
+38
+00:01:42,821 --> 00:01:45,108
+driven by basic instincts
+
+39
+00:01:45,108 --> 00:01:47,395
+They energetically move towards sights
+
+40
+00:01:47,395 --> 00:01:48,092
+sounds
+
+41
+00:01:48,092 --> 00:01:50,739
+and smells associated with living humans
+
+42
+00:01:50,739 --> 00:01:53,700
+attempting to ingest them upon contact
+
+43
+00:01:53,700 --> 00:01:58,240
+Neutralizing these subjects requires significant cranial trauma
+
+44
+00:01:58,240 --> 00:02:00,736
+Test Proposal 008-Gamma
+
+45
+00:02:00,736 --> 00:02:03,081
+Long-Term Survival Analysis
+
+46
+00:02:03,081 --> 00:02:04,660
+Hypothesis
+
+47
+00:02:04,660 --> 00:02:09,478
+SCP-008 infected subjects can survive for over ten years without nutrition
+
+48
+00:02:09,478 --> 00:02:12,891
+thanks to their drastically reduced metabolism
+
+49
+00:02:12,891 --> 00:02:19,532
+Understanding these mechanisms could provide insights into extending human survival in extreme conditions
+
+50
+00:02:19,532 --> 00:02:22,051
+Test Proposal 008-Delta
+
+51
+00:02:22,051 --> 00:02:23,990
+Behavioral Conditioning
+
+52
+00:02:23,990 --> 00:02:25,569
+Hypothesis
+
+53
+00:02:25,569 --> 00:02:27,891
+Despite severe cognitive damage
+
+54
+00:02:27,891 --> 00:02:33,278
+SCP-008 infected subjects may retain some capacity for conditioned behavior
+
+55
+00:02:33,278 --> 00:02:39,060
+This could lead to methods for controlling or redirecting their actions in containment scenarios
+
+56
+00:02:39,060 --> 00:02:41,777
+Test Proposal 008-Epsilon
+
+57
+00:02:41,777 --> 00:02:43,797
+Cross-Species Infection
+
+58
+00:02:43,797 --> 00:02:45,376
+Hypothesis
+
+59
+00:02:45,376 --> 00:02:50,786
+Cross-species analysis could reveal key differences in susceptibility and symptom progression
+
+60
+00:02:50,786 --> 00:02:56,730
+providing valuable data for understanding SCP-008's origins and potential weaknesses
+
+61
+00:02:56,730 --> 00:02:58,506
+Addendum 008-1
+
+62
+00:02:58,506 --> 00:03:00,108
+SCP-500
+
+63
+00:03:00,108 --> 00:03:02,813
+known for its remarkable healing properties
+
+64
+00:03:02,813 --> 00:03:07,608
+has been found to completely cure SCP-008 even in advanced stages
+
+65
+00:03:07,608 --> 00:03:12,577
+This discovery opens new avenues for treatment and containment strategies
+
+66
+00:03:12,577 --> 00:03:16,315
+The pursuit of understanding SCP-008 continues
+
+67
+00:03:16,315 --> 00:03:18,382
+Through rigorous experimentation
+
+68
+00:03:18,382 --> 00:03:22,713
+we aim to harness its potential and ensure its safe application
+
+69
+00:03:22,713 --> 00:03:24,466
+The science must continue
+
+70
+00:03:24,466 --> 00:03:26,266
+no matter the cost
+
+71
+00:03:26,266 --> 00:03:29,691
+Thank you for joining us in this journey of discovery
+
+72
+00:03:29,691 --> 00:03:30,794
+Remember to like
+
+73
+00:03:30,794 --> 00:03:31,734
+subscribe
+
+74
+00:03:31,734 --> 00:03:36,192
+and hit the notification bell for more explorations into the unknown
+
+75
+00:03:36,192 --> 00:03:37,481
+Until next time
+
+76
+00:03:37,481 --> 00:03:38,572
+stay vigilant
+
+77
+00:03:38,572 --> 00:03:39,454
+stay safe
+
+78
+00:03:39,454 --> 00:03:42,786
+and remember the science must continue
+
