@@ -64,7 +64,7 @@ def create_video_with_ffmpeg(image_path, audio_path, output_path, duration):
 image_path = 'C:\\Users\\Abdul\\Videos\\Youtube\\FFmpeg\\BackgroundCrop.jpg'
 audio_path = 'C:\\Users\\Abdul\\Videos\\Youtube\\FFmpeg\\from-beyond-royalty-free-no-copyright-background-music(1).wav'
 output_path = 'C:\\Users\\Abdul\\Videos\\Youtube\\FFmpeg\\output_video.mp4'
-
+overlay_path = 'C:\\Users\\Abdul\\Videos\\Youtube\\FFmpeg\\overlay.mp4'  # Path to the overlay image/video
 duration,audiofiles = getlenthoftime('C:\\Users\\Abdul\\Videos\\Youtube\\SCP Channel\\008')
 
 create_video_with_ffmpeg(image_path, audio_path, output_path, duration)

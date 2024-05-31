@@ -1,6 +1,21 @@
 # .gitignore
-**/glados-tts-main
+*\glados-tts-main
 
-**/glados_tts_main
+*\glados_tts_main
 
-**/ypewriter_frames
+*\typewriter_frames
+*.png
+*.jpg
+*jpeg
+*.gif
+*.bmp
+*.tiff
+*.tif
+*.mp4
+*.mov
+*.log
+*.pyc
+*.wav
+
+*\realcugan-ncnn-vulkan-20220728-windows
+*\rife-ncnn-vulkan-20221029-windows
