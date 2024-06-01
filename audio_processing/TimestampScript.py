@@ -68,12 +68,12 @@ def create_srt_file(audio_dir, text_chunks, output_srt, aduio_list):
     subs.save(output_srt, encoding='utf-8')
 
 # Usage example
-audio_dir = 'C:\\Users\\Abdul\\Videos\\Youtube\\SCP Channel\\008\\audio'
+audio_dir = 'C:\\Users\\Abdul\\Videos\\Youtube\\SCP_Channel\\009\\audio'
 text_chunks = [
     ]
 output_srt = 'output_subtitles.srt'
 
-folderpath = 'C:\\Users\\Abdul\\Videos\\Youtube\\SCP Channel\\008'
+folderpath = 'C:\\Users\\Abdul\\Videos\\Youtube\\SCP_Channel\\009'
 text = open(folderpath + '\\rawoutput.txt', 'r')
 for line in text:
     text_chunks.append(line)

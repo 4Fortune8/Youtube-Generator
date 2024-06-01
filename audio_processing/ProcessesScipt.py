@@ -1,4 +1,8 @@
 import re 
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
 from glados_tts_main.glados import makeGladosAudio
 
 
@@ -27,9 +31,9 @@ def replace_all(text, dic):
 
 listoflines = []
 listofrawlines =[] 
-scp = '008' 
+scp = '009' 
  
-with open(f'C:\\Users\\Abdul\\Videos\\Youtube\\SCP Channel\\{scp}\\script.txt', 'r') as file:
+with open(f'C:\\Users\\Abdul\\Videos\\Youtube\\SCP_Channel\\{scp}\\script.txt', 'r') as file:
     lines = file.readlines()
     
     
