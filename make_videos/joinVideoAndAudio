@@ -1,0 +1,33 @@
+import ffmpeg
+import random
+import os
+import glob
+def buildVideo(backroundAudio, VoiceAudio,Video,finalpath):
+
+    input_video = ffmpeg.input(Video)
+    input_audio1 = ffmpeg.input(VoiceAudio)
+    input_audio2 = ffmpeg.input(backroundAudio)
+    # Get the duration of the first audio file
+    audio1_duration = float(ffmpeg.probe(VoiceAudio)['streams'][0]['duration'])
+
+    # Repeat the second audio file until it's as long as the first audio file
+    audio2 = input_audio2.audio.filter_('atrim', duration=audio1_duration).filter_('aloop', loop=-1).filter_('loudnorm', I=-22, LRA=11, TP=-1.5)
+
+
+    # Mix the two audio streams
+    audio = ffmpeg.filter_([input_audio1.audio, audio2], 'amix')
+
+    # Combine the video and the mixed audio
+    output = ffmpeg.output(input_video.video, audio, finalpath+'\output.mp4')
+
+    # Run the command
+    ffmpeg.run(output)
+    
+
+baseDir= 'C:\\Users\\Abdul\\Videos\\Youtube\\SCP_Channel\\009'
+audio= baseDir+'\\concatenated_audio.wav'
+video = r"C:\Users\Abdul\Videos\Youtube\SCP_Channel\009\Final\output-crossfade.mp4"
+
+
+backroundAudio = r'C:\Users\Abdul\VSCODE_Projects\Youtube-Generator\Background\from-beyond-royalty-free-no-copyright-background-music(1).wav'
+buildVideo(backroundAudio,audio,video,baseDir)

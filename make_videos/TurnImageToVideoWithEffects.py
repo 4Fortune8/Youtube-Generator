@@ -16,7 +16,14 @@ def create_crossfade_video(image_files, output_file):
     stream = inputs[0]
     for i in range(1, len(inputs)):
         random_transition = random.choice(transitions)
-        stream = ffmpeg.overlay(stream, ffmpeg.filter((inputs[i-1],inputs[i]), 'xfade', transition=random_transition, duration=transition_duration, offset=(transition_duration-0.5)).setpts(f'PTS-STARTPTS+{i * duration_per_image-transition_duration}/TB'))
+        stream = ffmpeg.overlay(
+            stream, ffmpeg.filter(
+                (inputs[i-1],inputs[i]),
+                'xfade',
+                transition=random_transition,
+                duration=transition_duration,
+                offset=(duration_per_image-transition_duration)
+                ).setpts(f'PTS-STARTPTS+{((i-1) * duration_per_image)}/TB'))
 
     stream = ffmpeg.output(stream, output_file, vcodec='libx264', pix_fmt='yuv420p', r=25)
 
@@ -45,8 +52,18 @@ mp4_files = []
 for key, _ in enumerate(fileDict.keys()):
     mp4_files.append(fileDict[key])
 # Print the list of mp4 files
+mp4_files.insert(4,mp4_files[1])
+mp4_files[1] = mp4_files[11]    
+mp4_files.insert(11,mp4_files[6])
 mp4_files.insert(5,mp4_files[9])
-mp4_files.insert(4,mp4_files[10])
+mp4_files.insert(4,mp4_files[11])
+mp4_files.insert(6,mp4_files[1])
+mp4_files.insert(7,mp4_files[14])
+mp4_files.insert(4,mp4_files[11])                                                                                                                                                                                                        
+mp4_files.insert(7,mp4_files[14])
+mp4_files.insert(4,mp4_files[11])
+mp4_files.insert(6,mp4_files[1])
+mp4_files.insert(7,mp4_files[14])
 print(mp4_files)
 
 output_file = 'C:\\Users\\Abdul\\Videos\\Youtube\\SCP_Channel\\009\\Final\\output-crossfade.mp4'

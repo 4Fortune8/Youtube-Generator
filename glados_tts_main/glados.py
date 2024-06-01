@@ -131,7 +131,7 @@ class tts_runner:
 
 def makeGladosAudio(folderName, text):
     glados = tts_runner(False, True)
-    newpath=os.path.join('C:\\Users\\Abdul\\Videos\\Youtube\\SCP Channel',folderName)
+    newpath=os.path.join('C:\\Users\\Abdul\\Videos\\Youtube\\SCP_Channel',folderName)
     try:
         os.makedirs(newpath)
     except:
@@ -142,7 +142,7 @@ if __name__ == "__main__":
     glados = tts_runner(False, True)
     folderName = input("Input Folder Name: ")
     
-    newpath=os.path.join('C:\\Users\\Abdul\\Videos\\Youtube\\SCP Channel',folderName)
+    newpath=os.path.join('C:\\Users\\Abdul\\Videos\\Youtube\\SCP_Channel',folderName)
     try:
         os.makedirs(newpath)
     except:

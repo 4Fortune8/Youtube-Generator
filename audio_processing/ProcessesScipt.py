@@ -15,6 +15,11 @@ replacements = {
     '.':'  !(-----) .', # it seems | deletes last word 
     ':':'  !(-----) :',
     "%": " percent",
+    "°C": " degrees Celsius",
+    "°F": " degrees Fahrenheit",
+    "m³": " cubic meters",
+    '████' : 'redacted',
+    
     # Add more replacements as needed
 }
 rawreplacements = {
@@ -27,13 +32,14 @@ rawreplacements = {
 def replace_all(text, dic):
     for old, new in dic.items():
         text = text.replace(old, new)
+        text = re.sub(r'(?<=\s)-(?!\D)', 'negative ', text)
     return text
 
 listoflines = []
 listofrawlines =[] 
 scp = '009' 
  
-with open(f'C:\\Users\\Abdul\\Videos\\Youtube\\SCP_Channel\\{scp}\\script.txt', 'r') as file:
+with open(f'C:\\Users\\Abdul\\Videos\\Youtube\\SCP_Channel\\{scp}\\script.txt', 'r', encoding='utf-8') as file:
     lines = file.readlines()
     
     
@@ -72,7 +78,7 @@ for pos, line in enumerate(lines):
             listoflines.append(firstQuote)
             listofrawlines.append(rawfirstQuote)
 
-with open(f'C:\\Users\\Abdul\\Videos\\Youtube\\SCP Channel\\{scp}\\rawoutput.txt', 'w') as file:
+with open(f'C:\\Users\\Abdul\\Videos\\Youtube\\SCP_Channel\\{scp}\\rawoutput.txt', 'w',encoding='utf-8') as file:
     for pos, item in enumerate(listofrawlines):
         try:
             if listofrawlines[pos+1][0] == '\"':
@@ -89,7 +95,7 @@ with open(f'C:\\Users\\Abdul\\Videos\\Youtube\\SCP Channel\\{scp}\\rawoutput.txt
         if bool(item):
             file.write("%s\n" % item)
 
-with open(f'C:\\Users\\Abdul\\Videos\\Youtube\\SCP Channel\\{scp}\\output.txt', 'w') as file:
+with open(f'C:\\Users\\Abdul\\Videos\\Youtube\\SCP_Channel\\{scp}\\output.txt', 'w') as file:
     for item in listoflines:    
         if item[0] == '"':
                 item = item.lstrip('"')

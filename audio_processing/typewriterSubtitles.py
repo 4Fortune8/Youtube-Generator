@@ -20,7 +20,7 @@ def create_concat_file(file_list,folder_path, concat_file_path):
     # Create a file listing the audio files in order for FFmpeg concat
     with open(concat_file_path, 'w') as concat_file:
         for file_path in file_list:
-            concat_file.write(f"file 'C:\\Users\\Abdul\\Videos\\Youtube\\SCP Channel\\008\\audio\\{file_path}'\n")
+            concat_file.write(f"file 'C:\\Users\\Abdul\\Videos\\Youtube\\SCP Channel\\009\\audio\\{file_path}'\n")
 
 
 
