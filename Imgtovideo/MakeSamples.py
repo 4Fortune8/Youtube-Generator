@@ -9,7 +9,6 @@ import time
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), 'C:\\Users\\Abdul\\VSCODE Projects\\Youtube-Generator\\Imgtovideo\\ComfyUI')))
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), 'C:\\Users\\Abdul\\VSCODE Projects\\Youtube-Generator\\Imgtovideo\\ComfyUI\\comfy')))
 
-
 def movephotos(source_dir, dest_dir,folder):
     files = os.listdir(source_dir)
     pastlocation =dest_dir+'//'+folder
@@ -18,14 +17,23 @@ def movephotos(source_dir, dest_dir,folder):
     for file in files:
         shutil.move(os.path.join(source_dir, file), pastlocation)
 
-# specify your source directory and destination directory
-source_dir = 'C:\\Users\\Abdul\\VSCODE Projects\\Youtube-Generator\\Imgtovideo\\ComfyUI\\output'
-dest_dir = 'C:\\Users\\Abdul\\VSCODE Projects\\Youtube-Generator\\test'
-imgs = os.listdir(dest_dir)
-for img in imgs:
-    if img.endswith('.png'):    
-        for i in range(0,5): 
-            timenow= time.time()
-            complete = AnimatePhotoFast('C:\\Users\\Abdul\\VSCODE Projects\\Youtube-Generator\\test\\'+img,6,30)
-            print(time.time()-timenow)
-        movephotos(source_dir, dest_dir,img[:-4])
+
+scp = '020'
+
+photoLocationDir = f'C:\\Users\\Abdul\\Videos\\Youtube\\SCP_Channel\\{scp}\\photos\\'
+animationOutoutDir = 'C:\\Users\\Abdul\\VSCODE_Projects\\Youtube-Generator\\Imgtovideo\\ComfyUI\\output'
+dest_dir = f'C:\\Users\\Abdul\\Videos\\Youtube\\SCP_Channel\\{scp}\\animated'
+def makeSamples(photolocationDir,animationOutoutDir, destDir):
+    imgs = os.listdir(photoLocationDir)
+    for img in imgs[2:]:
+        if img.endswith('.png'):    
+            for i in range(0,3): 
+                timenow= time.time()
+                complete = AnimatePhotoFast(photoLocationDir+img,6,30)
+                print(time.time()-timenow)
+            movephotos(animationOutoutDir, destDir,img[:-4])
+
+if __name__ == "__main__":             
+    makeSamples(photoLocationDir,animationOutoutDir, dest_dir)
+
+

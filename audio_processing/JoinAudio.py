@@ -3,7 +3,6 @@ import os
 import subprocess
 from pydub import AudioSegment
 import re
-import pysrt
 import glob
 
 
@@ -43,7 +42,7 @@ def joinAudio(baseDir):
         '-safe', '0',
         '-i', concat_file_path,
         '-c', 'copy',
-        '-af', 'afftdn',
+        '-af', 'afftdn,highpass=f=690, volume=1.0',
         '-c:a', 'pcm_s16le',
         concat_audio_path
     ]
@@ -51,5 +50,5 @@ def joinAudio(baseDir):
     subprocess.run(command_concat_audio, check=True)
     # FFmpeg command to create a video from the image sequence and concatenated audio
 
-baseDir= 'C:\\Users\\Abdul\\Videos\\Youtube\\SCP_Channel\\009'
+baseDir= 'C:\\Users\\Abdul\\Videos\\Youtube\\SCP_Channel\\014'
 joinAudio(baseDir)

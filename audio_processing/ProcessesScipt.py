@@ -3,8 +3,12 @@ import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from glados_tts_main.glados import makeGladosAudio
+import torch
+from TTS.api import TTS
+# Get device
+device = "cuda" if torch.cuda.is_available() else "cpu"
 
+tts = TTS("tts_models/multilingual/multi-dataset/xtts_v2").to(device)
 
 replacements = {
     "Dr.": "Doctor",
@@ -19,14 +23,30 @@ replacements = {
     "°F": " degrees Fahrenheit",
     "m³": " cubic meters",
     '████' : 'redacted',
+    '██' : 'redacted',
+    
     
     # Add more replacements as needed
 }
 rawreplacements = {
-    
+    "SCP": ',  S  C  P',
+    "Dr.": "Doctor",
+    "Mr.": "Mister",
+    "Mrs.": "Missus",
     "(In a calm, robotic tone)": "",
     "Welcome, test subjects": "Welcome, Site Director",
-
+    "°C": " degrees Celsius",
+    "°F": " degrees Fahrenheit",
+    "m³": " cubic meters",
+    '███████' : 'redacted,',
+    '██████' : 'redacted,',
+    '█████' : 'redacted,',
+    '████' : 'redacted,',
+    '███' : 'redacted,',
+    '██' : 'redacted,',
+    '█' : 'redacted,',
+   # '.': '...',
+   # ',': '.'
 }
 
 def replace_all(text, dic):
@@ -37,8 +57,8 @@ def replace_all(text, dic):
 
 listoflines = []
 listofrawlines =[] 
-scp = '009' 
- 
+scp = '014' 
+speaker='Baldur Sanjin'
 with open(f'C:\\Users\\Abdul\\Videos\\Youtube\\SCP_Channel\\{scp}\\script.txt', 'r', encoding='utf-8') as file:
     lines = file.readlines()
     
@@ -48,7 +68,7 @@ for pos, line in enumerate(lines):
     line= replace_all(line, replacements)     
     if 'GLaDOS' in line and line[0] != '[':
         rawline =rawline.split(':', 1)[1]
-        rawsentence = re.split('[,.:]', rawline)
+        rawsentence = re.split('[:]', rawline)
         listofrawlines.extend(rawsentence)
         
         line = line.split(':', 1)[1]
@@ -92,10 +112,15 @@ with open(f'C:\\Users\\Abdul\\Videos\\Youtube\\SCP_Channel\\{scp}\\rawoutput.txt
         if item[0] == '\n':
             item = item.lstrip('\n')
         print(bool(item),item,bool(item))
+        
         if bool(item):
+            wav = tts.tts(text=item,speaker=speaker, language="en", speed=1.15)
+            # Text to speech to a file
+            os.makedirs(f'C:\\Users\\Abdul\\Videos\\Youtube\\SCP_Channel\\{scp}\\audio', exist_ok=True)
+            tts.tts_to_file(text=item, speaker=speaker, language="en", file_path=f'C:\\Users\\Abdul\\Videos\\Youtube\\SCP_Channel\\{scp}\\audio\\{speaker}_{pos}output.wav')
             file.write("%s\n" % item)
 
-with open(f'C:\\Users\\Abdul\\Videos\\Youtube\\SCP_Channel\\{scp}\\output.txt', 'w') as file:
+"""with open(f'C:\\Users\\Abdul\\Videos\\Youtube\\SCP_Channel\\{scp}\\output.txt', 'w') as file:
     for item in listoflines:    
         if item[0] == '"':
                 item = item.lstrip('"')
@@ -105,7 +130,7 @@ with open(f'C:\\Users\\Abdul\\Videos\\Youtube\\SCP_Channel\\{scp}\\output.txt', 
             item = item.lstrip('\n')
         print(bool(item),item,bool(item))
         if bool(item):
-            makeGladosAudio(f'{scp}/Audio', item)
+            #makeGladosAudio(f'{scp}/Audio', item)
             file.write("%s\n" % item)
             
-
+"""
