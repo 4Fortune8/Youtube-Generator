@@ -117,7 +117,7 @@ with open(f'C:\\Users\\Abdul\\Videos\\Youtube\\SCP_Channel\\{scp}\\rawoutput.txt
             wav = tts.tts(text=item,speaker=speaker, language="en", speed=1.15)
             # Text to speech to a file
             os.makedirs(f'C:\\Users\\Abdul\\Videos\\Youtube\\SCP_Channel\\{scp}\\audio', exist_ok=True)
-            tts.tts_to_file(text=item, speaker=speaker, language="en", file_path=f'C:\\Users\\Abdul\\Videos\\Youtube\\SCP_Channel\\{scp}\\audio\\{speaker}_{pos}output.wav')
+            tts.tts_to_file(text=item, speaker=speaker, language="en", file_path=f'C:\\Users\\Abdul\\Videos\\Youtube\\SCP_Channel\\{scp}\\audio\\{pos} {speaker}_output.wav')
             file.write("%s\n" % item)
 
 """with open(f'C:\\Users\\Abdul\\Videos\\Youtube\\SCP_Channel\\{scp}\\output.txt', 'w') as file:

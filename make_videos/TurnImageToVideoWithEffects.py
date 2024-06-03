@@ -2,7 +2,7 @@ import ffmpeg
 import random
 import os
 import glob
-
+scp='014'
 
 def create_crossfade_video(image_files, output_file):
     duration_per_image = 10  # Duration each image is shown
@@ -37,9 +37,9 @@ import glob
 def sort_files(file):
     parts = file.split(os.sep)
     return [int(part) if part.isdigit() else part for part in parts]
-
+scp = '014'
 # Define the directory
-directory = r'C:\Users\Abdul\Videos\Youtube\SCP_Channel\009\Final'
+directory = f'C:\\Users\\Abdul\\Videos\\Youtube\\SCP_Channel\\{scp}\\animated\\Final'
 fileDict = {}
 # Get a list of all mp4 files in the directory and its subdirectories
 mp4_files = glob.glob(os.path.join(directory, '**', '*.mp4'), recursive=True)
@@ -52,20 +52,8 @@ mp4_files = []
 for key, _ in enumerate(fileDict.keys()):
     mp4_files.append(fileDict[key])
 # Print the list of mp4 files
-mp4_files.insert(4,mp4_files[1])
-mp4_files[1] = mp4_files[11]    
-mp4_files.insert(11,mp4_files[6])
-mp4_files.insert(5,mp4_files[9])
-mp4_files.insert(4,mp4_files[11])
-mp4_files.insert(6,mp4_files[1])
-mp4_files.insert(7,mp4_files[14])
-mp4_files.insert(4,mp4_files[11])                                                                                                                                                                                                        
-mp4_files.insert(7,mp4_files[14])
-mp4_files.insert(4,mp4_files[11])
-mp4_files.insert(6,mp4_files[1])
-mp4_files.insert(7,mp4_files[14])
-print(mp4_files)
 
-output_file = 'C:\\Users\\Abdul\\Videos\\Youtube\\SCP_Channel\\009\\Final\\output-crossfade.mp4'
+
+output_file = f'C:\\Users\\Abdul\\Videos\\Youtube\\SCP_Channel\\{scp}\\animated\\Final\\output-crossfade.mp4'
 
 create_crossfade_video(mp4_files, output_file)
