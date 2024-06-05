@@ -2,7 +2,7 @@ import ffmpeg
 import random
 import os
 import glob
-scp='014'
+scp='020'
 
 def create_crossfade_video(image_files, output_file):
     duration_per_image = 10  # Duration each image is shown
@@ -37,7 +37,10 @@ import glob
 def sort_files(file):
     parts = file.split(os.sep)
     return [int(part) if part.isdigit() else part for part in parts]
-scp = '014'
+
+scp = '020'
+
+
 # Define the directory
 directory = f'C:\\Users\\Abdul\\Videos\\Youtube\\SCP_Channel\\{scp}\\animated\\Final'
 fileDict = {}

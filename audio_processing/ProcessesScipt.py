@@ -57,7 +57,7 @@ def replace_all(text, dic):
 
 listoflines = []
 listofrawlines =[] 
-scp = '014' 
+scp = '020' 
 speaker='Baldur Sanjin'
 with open(f'C:\\Users\\Abdul\\Videos\\Youtube\\SCP_Channel\\{scp}\\script.txt', 'r', encoding='utf-8') as file:
     lines = file.readlines()

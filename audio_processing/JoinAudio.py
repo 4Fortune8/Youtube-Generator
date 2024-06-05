@@ -49,6 +49,6 @@ def joinAudio(baseDir):
     # Run the FFmpeg command to concatenate audio
     subprocess.run(command_concat_audio, check=True)
     # FFmpeg command to create a video from the image sequence and concatenated audio
-
-baseDir= 'C:\\Users\\Abdul\\Videos\\Youtube\\SCP_Channel\\014'
+scp = '020'
+baseDir= f'C:\\Users\\Abdul\\Videos\\Youtube\\SCP_Channel\\{scp}'
 joinAudio(baseDir)

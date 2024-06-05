@@ -55,8 +55,6 @@ def postprocess(reveservideopath,forwardvideopath,finalpath):
     os.makedirs(output_dir, exist_ok=True)
 
     # Get a list of all the image files in the input directory
-    image_files = sorted([f for f in os.listdir(input_dir) if os.path.isfile(os.path.join(input_dir, f))])
-
     # For each image file, construct and execute the rife-ncnn-vulkan command
     startframes = len(image_files)
     for pos,image_file in enumerate(image_files[:-1]):

@@ -14,7 +14,7 @@ def movephotos(source_dir, dest_dir):
     # iterate over all files and move each file
     for file in files:
         shutil.move(os.path.join(source_dir, file), pastelocation)
-scp = '014'
+scp = '020'
 
 # specify your directory
 root_dir = f'C:\\Users\\Abdul\\Videos\\Youtube\\SCP_Channel\\{scp}\\animated'
