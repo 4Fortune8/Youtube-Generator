@@ -42,13 +42,13 @@ def joinAudio(baseDir):
         '-safe', '0',
         '-i', concat_file_path,
         '-c', 'copy',
-        '-af', 'afftdn,highpass=f=690, volume=1.0',
+        '-af', 'afftdn,highpass=f=600, volume=1.10, atempo=1.10',
         '-c:a', 'pcm_s16le',
         concat_audio_path
     ]
     # Run the FFmpeg command to concatenate audio
     subprocess.run(command_concat_audio, check=True)
     # FFmpeg command to create a video from the image sequence and concatenated audio
-scp = '020'
+scp = '097'
 baseDir= f'C:\\Users\\Abdul\\Videos\\Youtube\\SCP_Channel\\{scp}'
 joinAudio(baseDir)

@@ -18,16 +18,16 @@ def movephotos(source_dir, dest_dir,folder):
         shutil.move(os.path.join(source_dir, file), pastlocation)
 
 
-scp = '020'
+scp = '097'
 
 photoLocationDir = f'C:\\Users\\Abdul\\Videos\\Youtube\\SCP_Channel\\{scp}\\photos\\'
 animationOutoutDir = 'C:\\Users\\Abdul\\VSCODE_Projects\\Youtube-Generator\\Imgtovideo\\ComfyUI\\output'
 dest_dir = f'C:\\Users\\Abdul\\Videos\\Youtube\\SCP_Channel\\{scp}\\animated'
 def makeSamples(photolocationDir,animationOutoutDir, destDir):
     imgs = os.listdir(photoLocationDir)
-    for img in imgs[2:]:
+    for img in imgs:
         if img.endswith('.png'):    
-            for i in range(0,3): 
+            for i in range(0,4): 
                 timenow= time.time()
                 complete = AnimatePhotoFast(photoLocationDir+img,6,30)
                 print(time.time()-timenow)

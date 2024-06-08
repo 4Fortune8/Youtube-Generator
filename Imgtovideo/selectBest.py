@@ -4,8 +4,12 @@ import os
 import time
 import subprocess
 import sys
-from PostProcess.postprocess import postprocess
 
+sys.path.insert(0, r'C:\Users\Abdul\VSCODE_Projects\Youtube-Generator')
+
+
+from PostProcess.postprocess import postprocess, solopostprocess
+#from make_videos.TurnToVideoWithEffects import joinMedia
 
 def movephotos(source_dir, dest_dir):
     files = os.listdir(source_dir)
@@ -14,7 +18,7 @@ def movephotos(source_dir, dest_dir):
     # iterate over all files and move each file
     for file in files:
         shutil.move(os.path.join(source_dir, file), pastelocation)
-scp = '020'
+scp = '096'
 
 # specify your directory
 root_dir = f'C:\\Users\\Abdul\\Videos\\Youtube\\SCP_Channel\\{scp}\\animated'
@@ -45,6 +49,10 @@ for dirpath, dirnames, filenames in os.walk(root_dir):
                 n+=1
                 reverse = False
                 forward = False
+    if forward:
+                file_paths[n] = [forward]
+                n+=1
+                forward = False
 
 # print the list of file paths
 for file_path in file_paths:
@@ -56,11 +64,15 @@ for file_path in file_paths:
     finalvideos =os.path.join(root_dir,'Final',file_path_parts[-2])
     generatevalues = file_path_parts[-1].split('_')
     fps =generatevalues[-2]
-    postprocess(file_paths[file_path][0],file_paths[file_path][1],finalvideos,12)
-
+    try:
+        file_paths[file_path][1]
+        postprocess(file_paths[file_path][0],file_paths[file_path][1],finalvideos )
+    except:
+        solopostprocess(file_paths[file_path][0],finalvideos )
     os.makedirs(finalvideos, exist_ok=True)
 
 
- 
+
+#joinMedia(scp)
 
    
