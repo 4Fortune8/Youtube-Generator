@@ -42,8 +42,8 @@ def doSCPImgPromptFromURL(scpUrl,chatgpt,saveFolder):
     for i in lines_before_end:
         page = page + ' ' + i
     print(page)
-    setup_prompt = "Turn This into a script of a man narrorating the document to a director, the narrorator  discuss tests that were ran and tests to run. Feel free to take creative liberties, be creative and feel free to add things you think would enrich the narrative of a man obsessed with tests that push the limits of understanding:"
-    selectGPTChatAndUsePrompt(chatgpt,'Bees Swarm Containment Procedure',setup_prompt, page)
+    setup_prompt = "Turn this text into a compelling script narrated by a man who is passionate about pushing the limits of understanding through tests. The narration should start with a captivating hook that grabs the audience's attention. The narrator should discuss both the tests that were conducted and the ones that are planned. The script should reflect the man's obsession with these tests and his relentless pursuit of knowledge for better containment. Be creative and add elements that enrich the narrative. Any text that should not be read aloud should be enclosed in brackets:"
+    selectGPTChatAndUsePrompt(chatgpt,'Sphere of Enigmatic Obsession',setup_prompt, page)
     time.sleep(66)
     
     
@@ -55,7 +55,7 @@ def doSCPImgPromptFromURL(scpUrl,chatgpt,saveFolder):
     lines_before_end = lines_after_first[:-2]
     # Join the lines back into a single string
     script = ''
-    setup_prompt = r"Hello ChatGPT, I have a story script that I'd like to convert into prompts for generating images with DALL-E. The goal is to extract vivid, action-packed scenes that would make for visually compelling images. Please provide detailed prompts describing these actions without summarizing the chunks of text, Keep the number of people in the scene to a minimum, and keep the scene one instances in time, no transitions. The image should be ideal for AI animation from a single frame. Replace the SCP-### with a descriptive name that works better for image generation  Here is the text:"
+    setup_prompt = r"Hello ChatGPT, I have a story script that I'd like to convert into prompts for generating images with DALL-E. The goal is to extract vivid, action-packed prompts that would make for visually compelling images. Please provide detailed prompts describing these actions without summarizing the chunks of text. Keep the number of people in the scene to a minimum and ensure the scene captures one instance in time with no transitions. The prompts should be ideal for AI animation from a single frame. Replace the SCP-###  and all SCP-### derivatives with a descriptive name that works better for image generation. Avoid prompts that have text shown in the image. Here is the text: "
 
     with open(saveFolder+'\\script.txt', 'w',encoding='utf-8') as file:
         for i in lines_before_end:

@@ -194,19 +194,18 @@ class ChatGPTAutomation:
         action = webdriver.ActionChains(driver)
         for prompt in list:
             print("makeImage")
-            driver.find_element("id", "prompt-textarea").send_keys('make me a 1792x1024 image of the following:')
+            driver.find_element("id", "prompt-textarea").send_keys('I am going to give you image prompts. You have full autonomy to modify them to fit any content filters, ensuring they are appropriate for use. The images should be 1792x1024 in resolution and good candidates for AI animation, which means they should have large, simple details and avoid text. Here is the prompt:')
             driver.find_element("id", "prompt-textarea").send_keys( prompt + "\n")
             self.check_response_ended()
             time.sleep(random.randint(1, 10))
             self.saveImage(folderPath)
             print("saved")
+            time.sleep(5)
             self.refreshPrompt()
             print("refreshed")
             self.saveImage(folderPath)
             print("saved")
-            driver.find_element("id", "prompt-textarea").send_keys('make me a 1792x1024 image of the following:')
-            action.key_down(Keys.SHIFT).key_down(Keys.ENTER).key_up(
-            Keys.ENTER).key_up(Keys.SHIFT).perform()
+            
     
 
         
