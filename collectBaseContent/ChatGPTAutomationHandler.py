@@ -194,17 +194,17 @@ class ChatGPTAutomation:
         action = webdriver.ActionChains(driver)
         for prompt in list:
             print("makeImage")
-            driver.find_element("id", "prompt-textarea").send_keys('make me a HD 1792x1024 image of the following:')
+            driver.find_element("id", "prompt-textarea").send_keys('make me a 1792x1024 image of the following:')
             driver.find_element("id", "prompt-textarea").send_keys( prompt + "\n")
             self.check_response_ended()
-            time.sleep(random.randint(1, 5))
+            time.sleep(random.randint(1, 10))
             self.saveImage(folderPath)
             print("saved")
             self.refreshPrompt()
             print("refreshed")
             self.saveImage(folderPath)
             print("saved")
-            driver.find_element("id", "prompt-textarea").send_keys('make me a HD 1792x1024 image of the following:')
+            driver.find_element("id", "prompt-textarea").send_keys('make me a 1792x1024 image of the following:')
             action.key_down(Keys.SHIFT).key_down(Keys.ENTER).key_up(
             Keys.ENTER).key_up(Keys.SHIFT).perform()
     

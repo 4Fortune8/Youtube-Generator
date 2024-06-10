@@ -2,12 +2,24 @@ import ffmpeg
 import random
 import os
 import glob
+import re
 scp='097'
+def sort_files(file):
+    # Extract the leading number from the file name
+    print(os.path.dirname(file))
+    match = re.match(r'(\d+)', os.path.dirname(file).split('\\')[-1])
+    if match:
+        return int(match.group(1))
+    else:
+        return float('inf')  # If no leading number, place the file at the end
+
 
 def create_crossfade_video(image_files, output_file):
     transition_duration = 1  # Duration of the fade transition
     inputs =     []
     durationList = []
+    image_files = sorted(image_files, key=sort_files)
+
     for image in image_files:
         probe = ffmpeg.probe(image)
         video_info = next((stream for stream in probe['streams'] if stream['codec_type'] == 'video'), None)
@@ -18,11 +30,11 @@ def create_crossfade_video(image_files, output_file):
     timeelapsed = 0
     # Construct the FFmpeg command
     stream = inputs[0]
-    for i in range(1, len(inputs)):
+    for i in range(1, len(inputs)-1):
         random_transition = random.choice(transitions)
         stream = ffmpeg.overlay(
             stream, ffmpeg.filter(
-                (inputs[i-1],inputs[i]),
+                (inputs[i],inputs[i+1]),
                 'xfade',
                 transition=random_transition,
                 duration=transition_duration,
@@ -39,10 +51,6 @@ def create_crossfade_video(image_files, output_file):
 import os
 import glob
 # Define a custom sorting function
-def sort_files(file):
-    parts = file.split(os.sep)
-    return [int(part) if part.isdigit() else part for part in parts]
-
 
 
 def joinMedia(scp):
@@ -63,7 +71,7 @@ def joinMedia(scp):
 
 
     output_file = f'C:\\Users\\Abdul\\Videos\\Youtube\\SCP_Channel\\{scp}\\animated\\Final\\output-crossfade.mp4'
-    
+    mp4_files    = sorted(mp4_files, key=sort_files)
     create_crossfade_video(mp4_files, output_file)
 
 

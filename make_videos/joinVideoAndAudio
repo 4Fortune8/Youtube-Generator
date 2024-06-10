@@ -3,25 +3,27 @@ import random
 import os
 import glob
 import math
+
+
+
 def buildVideo(backroundAudio, VoiceAudio,Video,finalpath):
 
     input_video = ffmpeg.input(Video)
     
     input_audio1 = ffmpeg.input(VoiceAudio)
-    input_audio2 = ffmpeg.input(backroundAudio)
-    audio2_duration = float(ffmpeg.probe(backroundAudio)['format']['duration'])
+    input_audio2 = ffmpeg.input(backroundAudio,stream_loop=-1)
 
     # Cut out the first 8 seconds of the audio
     # Get the duration of the first audio file
     audio1_duration = float(ffmpeg.probe(VoiceAudio)['streams'][0]['duration'])
-    loops = math.ceil((audio1_duration) / audio2_duration)
+  
 
     # Repeat the second audio file until it's as long as the first audio file
-    audio2 = input_audio2.audio.filter_('atrim', duration=audio1_duration).filter_('aloop', loop=-1).filter_('loudnorm', I=-37, LRA=11, TP=-1.5)
-    audio2 = ffmpeg.filter(audio2, 'atrim', start=7)  
-    audio2_streams = ffmpeg.concat(input_audio2, input_audio2, v=0, a=1)
+    audio2 = input_audio2.audio.filter_('atrim', duration=audio1_duration).filter_('loudnorm', I=-34, LRA=11, TP=-1.5)
+ 
+
     # Mix the two audio streams
-    audio = ffmpeg.filter_([input_audio1.audio, audio2_streams], 'amix')
+    audio = ffmpeg.filter_([input_audio1.audio, audio2], 'amix')
 
     # Combine the video and the mixed audio
     output = ffmpeg.output(input_video.video, audio, finalpath+'\output.mp4', shortest=None)
