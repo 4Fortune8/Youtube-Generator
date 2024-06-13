@@ -42,7 +42,7 @@ def doSCPImgPromptFromURL(scpUrl,chatgpt,saveFolder):
     for i in lines_before_end:
         page = page + ' ' + i
     print(page)
-    setup_prompt = "Turn this text into a compelling script narrated by a man who is passionate about pushing the limits of understanding through tests. The narration should start with a captivating hook that grabs the audience's attention. The narrator should discuss both the tests that were conducted and the ones that are planned. The script should reflect the man's obsession with these tests and his relentless pursuit of knowledge for better containment. Be creative and add elements that enrich the narrative. Any text that should not be read aloud should be enclosed in brackets:"
+    setup_prompt = "Turn this document into a script narrated by a man obsessed with tests that push the limits of understanding and improving future safety at the cost short term risks. The narrator should discuss the tests that have been conducted and those that are planned. Feel free to take creative liberties to enrich the narrative. Any images or parts of the script not to be read should be in brackets. Open with a captivating hook to draw the audience in: "
     selectGPTChatAndUsePrompt(chatgpt,'Sphere of Enigmatic Obsession',setup_prompt, page)
     time.sleep(66)
     
@@ -74,7 +74,7 @@ def collectIMGPromptsActions(chatgpt,prompts):
     # Get all lines except the first one
     lines_after_first = lines[1:]
     for i in lines_after_first:
-        if len(i) > 200:
+        if len(i) > 165:
             prompts.append(i)
     # Join the lines back into a single string
     print(prompts)
@@ -98,7 +98,7 @@ chrome_driver_path = r"C:\Users\Abdul\chromedriver.exe"
 
 # the sintax r'"..."' is required because the space in "Program Files" in the chrome path
 chrome_path = r'"C:\Program Files\Google\Chrome\Application\chrome.exe"'
-scp='002'
+scp='035'
 # Create an instance
 chatgpt = ChatGPTAutomation(chrome_path, chrome_driver_path)
 projectFolder= f'C:\\Users\\Abdul\\Videos\\Youtube\\SCP_Channel\\{scp}'
