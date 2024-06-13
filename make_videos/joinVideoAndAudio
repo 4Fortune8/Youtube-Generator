@@ -29,12 +29,12 @@ def buildVideo(backroundAudio, VoiceAudio,Video,finalpath):
     audio = ffmpeg.filter_([input_audio1.audio, audio2], 'amix')
 
     output = ffmpeg.output(input_video.video, input_audio1.audio, temp_file.name, shortest=None, vcodec='h264_nvenc')
-    ffmpeg.run(output)
+    ffmpeg.run(output, overwrite_output=True)
     
    
-    subprocess.run(['auto_subtitle', temp_file.name, '--model', 'medium.en', '-o', './','--srt_only',"True"])
+    subprocess.run(['auto_subtitle', temp_file.name, '--model', 'medium.en', '-o', './thing','--srt_only',"True"])
     
-    subprocess.run(['ffmpeg','-hwaccel','cuda', '-i', temp_file.name,"-c:v", "h264_nvenc", '-vf', 'subtitles=tmpltendcqw.srt ',  temp_file2.name]) 
+    subprocess.run(['ffmpeg','-hwaccel','cuda', '-i', temp_file.name,"-c:v", "h264_nvenc", '-vf', 'subtitles=./thing/subtitles.srt ', '-y', temp_file2.name]) 
     
     input_video = ffmpeg.input(temp_file2.name, hwaccel='cuda')
     # Combine the video and the mixed audio
@@ -43,7 +43,7 @@ def buildVideo(backroundAudio, VoiceAudio,Video,finalpath):
     
   
     # Run the command
-    ffmpeg.run(output)
+    ffmpeg.run(output, overwrite_output=True)
     
 scp = '020'
 baseDir= f'C:\\Users\\Abdul\\Videos\\Youtube\\SCP_Channel\\{scp}'

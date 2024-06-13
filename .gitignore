@@ -16,6 +16,7 @@
 *.log
 *.pyc
 *.wav
+*.srt
 
 *\realcugan-ncnn-vulkan-20220728-windows
 *\rife-ncnn-vulkan-20221029-windows
