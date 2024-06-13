@@ -3,15 +3,18 @@ import random
 import os
 import glob
 import math
-
+import subprocess
+import tempfile
+import auto_subtitle 
 
 
 def buildVideo(backroundAudio, VoiceAudio,Video,finalpath):
-
-    input_video = ffmpeg.input(Video)
+    temp_file = tempfile.NamedTemporaryFile(suffix=".mp4", delete=False)
+    temp_file2 = tempfile.NamedTemporaryFile(suffix=".mp4",delete=False)
+    input_video = ffmpeg.input(Video, hwaccel='cuda')
     
-    input_audio1 = ffmpeg.input(VoiceAudio)
-    input_audio2 = ffmpeg.input(backroundAudio,stream_loop=-1)
+    input_audio1 = ffmpeg.input(VoiceAudio, hwaccel='cuda')
+    input_audio2 = ffmpeg.input(backroundAudio, hwaccel='cuda',stream_loop=-1)
 
     # Cut out the first 8 seconds of the audio
     # Get the duration of the first audio file
@@ -25,15 +28,24 @@ def buildVideo(backroundAudio, VoiceAudio,Video,finalpath):
     # Mix the two audio streams
     audio = ffmpeg.filter_([input_audio1.audio, audio2], 'amix')
 
+    output = ffmpeg.output(input_video.video, input_audio1.audio, temp_file.name, shortest=None, vcodec='h264_nvenc')
+    ffmpeg.run(output)
+    
+   
+    subprocess.run(['auto_subtitle', temp_file.name, '--model', 'medium.en', '-o', './','--srt_only',"True"])
+    
+    subprocess.run(['ffmpeg','-hwaccel','cuda', '-i', temp_file.name,"-c:v", "h264_nvenc", '-vf', 'subtitles=tmpltendcqw.srt ',  temp_file2.name]) 
+    
+    input_video = ffmpeg.input(temp_file2.name, hwaccel='cuda')
     # Combine the video and the mixed audio
-    output = ffmpeg.output(input_video.video, audio, finalpath+'\output.mp4', shortest=None)
+    output = ffmpeg.output(input_video.video, audio, finalpath+'\output.mp4', shortest=None, vcodec='h264_nvenc')
     
     
   
     # Run the command
     ffmpeg.run(output)
     
-scp = '097'
+scp = '020'
 baseDir= f'C:\\Users\\Abdul\\Videos\\Youtube\\SCP_Channel\\{scp}'
 audio= baseDir+'\\concatenated_audio.wav'
 video = f"C:\\Users\\Abdul\\Videos\\Youtube\\SCP_Channel\\{scp}\\animated\\Final\\output-crossfade.mp4"
