@@ -201,10 +201,7 @@ class ChatGPTAutomation:
             self.saveImage(folderPath)
             print("saved")
             time.sleep(5)
-            self.refreshPrompt()
-            print("refreshed")
-            self.saveImage(folderPath)
-            print("saved")
+
             
     
 

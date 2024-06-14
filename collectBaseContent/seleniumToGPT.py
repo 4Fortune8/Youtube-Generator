@@ -61,7 +61,7 @@ def doSCPImgPromptFromURL(scpUrl,chatgpt,saveFolder):
         for i in lines_before_end:
             file.write(i + '\n')
             script = script + ' ' + i
-    selectGPTChatAndUsePrompt(chatgpt,'Image Prompts for DALL-E',setup_prompt, script)
+    selectGPTChatAndUsePrompt(chatgpt,'Image Prompts for DALL-E',setup_prompt, page)
 
 
 
