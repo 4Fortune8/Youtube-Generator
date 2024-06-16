@@ -10,7 +10,8 @@ def create_concat_file(file_list, concat_file_path): #Todo
     # Create a file listing the audio files in order for FFmpeg concat
     with open(concat_file_path, 'w') as concat_file:
         for file_path in file_list:
-            concat_file.write(f"file '{file_path}'\n")
+            if file_path[-3:] == 'wav':
+                concat_file.write(f"file '{file_path}'\n")
 
 
 
@@ -42,13 +43,14 @@ def joinAudio(baseDir):
         '-safe', '0',
         '-i', concat_file_path,
         '-c', 'copy',
-        '-af', 'afftdn,highpass=f=600, volume=1.10, atempo=1.10',
+        '-af', ' highpass=f=320,lowpass=f=7200, volume=1.10,afftdn , atempo=1.01',
         '-c:a', 'pcm_s16le',
         concat_audio_path
     ]
+    
     # Run the FFmpeg command to concatenate audio
     subprocess.run(command_concat_audio, check=True)
     # FFmpeg command to create a video from the image sequence and concatenated audio
-scp = '097'
+scp = '035'
 baseDir= f'C:\\Users\\Abdul\\Videos\\Youtube\\SCP_Channel\\{scp}'
 joinAudio(baseDir)
