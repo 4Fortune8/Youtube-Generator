@@ -10,8 +10,8 @@ tts = TTS("tts_models/multilingual/multi-dataset/xtts_v2").to(device)
 scp = '035'
 
 speaker='Baldur Sanjin'
-item= "Addendum 035 1"
+item= "Conclusion"
 for i in range(0,3):
-    tts.tts_to_file(text=item, speaker=speaker, language="en", file_path=f'C:\\Users\\Abdul\\Videos\\Youtube\\SCP_Channel\\{scp}\\audio\\9x {i} {speaker}_output.wav')
+    tts.tts_to_file(text=item, speaker=speaker, language="en", file_path=f'C:\\Users\\Abdul\\Videos\\Youtube\\SCP_Channel\\{scp}\\audio\\30x {i} {speaker}_output.wav')
             
             

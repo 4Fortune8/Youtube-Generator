@@ -1,6 +1,6 @@
 
-#from ComfyUI.ComfyUI_to_Python_Extension.workflow_api_base import AnimatePhoto as AnimatePhotoFast
-#from ComfyUI.ComfyUI_to_Python_Extension.workflow_api_full import AnimatePhoto as AnimatePhotoUpscaled
+from ComfyUI.ComfyUI_to_Python_Extension.workflow_api_base import AnimatePhoto as AnimatePhotoFast
+from ComfyUI.ComfyUI_to_Python_Extension.workflow_api_full import AnimatePhoto as AnimatePhotoUpscaled
 
 import shutil
 import os
@@ -36,8 +36,8 @@ def makeSamples(photolocationDir,animationOutoutDir, destDir):
             output=destDir+"\\"+img[:-4]+"\\"
             os.makedirs(output, exist_ok=True)
             makeStaticEffects(imgDir, output)
-            if False:
-                for i in range(0,2): 
+            if True:
+                for i in range(0,4): 
                     timenow= time.time()
                     complete = AnimatePhotoFast(photoLocationDir+img,6,30)
                     print(time.time()-timenow)
